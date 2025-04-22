@@ -10,7 +10,7 @@ exports.addSchool = async (req, res) => {
 
   try {
     await db.execute(
-      "INSERT INTO schools (name, address, latitude, longitude) VALUES (?, ?, ?, ?)",
+      "INSERT INTO sql12774688 (name, address, latitude, longitude) VALUES (?, ?, ?, ?)",
       [name, address, latitude, longitude]
     );
     res.status(201).json({ message: "School added successfully." });
@@ -28,7 +28,7 @@ exports.listSchools = async (req, res) => {
   }
 
   try {
-    const [schools] = await db.execute("SELECT * FROM schools");
+    const [schools] = await db.execute("SELECT * FROM sql12774688");
 
     schools.forEach((school) => {
       school.distance = calculateDistance(
